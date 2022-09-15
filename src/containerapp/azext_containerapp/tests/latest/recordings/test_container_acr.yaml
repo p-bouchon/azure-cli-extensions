@@ -3673,7 +3673,7 @@ interactions:
       User-Agent:
       - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3?api-version=2022-10-01&azureAsyncOperation=true
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App?api-version=2021-04-01
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3","name":"8fad91e5-d602-48e3-b06c-97e6cdaff6d3","status":"InProgress","startTime":"2023-03-14T07:27:50.9699185"}'
@@ -3775,7 +3775,7 @@ interactions:
       User-Agent:
       - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3?api-version=2022-10-01&azureAsyncOperation=true
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/clitest.rg000001?api-version=2021-04-01
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3","name":"8fad91e5-d602-48e3-b06c-97e6cdaff6d3","status":"InProgress","startTime":"2023-03-14T07:27:50.9699185"}'
@@ -3824,9 +3824,10 @@ interactions:
       ParameterSetName:
       - -g -n --logs-workspace-id --logs-workspace-key
       User-Agent:
-      - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3?api-version=2022-10-01&azureAsyncOperation=true
+      - AZURECLI/2.43.0 azsdk-python-azure-mgmt-containerregistry/10.0.0 Python/3.9.7
+        (Windows-10-10.0.22621-SP0)
+    method: PUT
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.ContainerRegistry/registries/containerapp000005?api-version=2022-02-01-preview
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3","name":"8fad91e5-d602-48e3-b06c-97e6cdaff6d3","status":"InProgress","startTime":"2023-03-14T07:27:50.9699185"}'
@@ -3928,7 +3929,7 @@ interactions:
       User-Agent:
       - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3?api-version=2022-10-01&azureAsyncOperation=true
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.ContainerRegistry/registries/containerapp000005?api-version=2022-02-01-preview
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3","name":"8fad91e5-d602-48e3-b06c-97e6cdaff6d3","status":"InProgress","startTime":"2023-03-14T07:27:50.9699185"}'
@@ -3979,7 +3980,7 @@ interactions:
       User-Agent:
       - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3?api-version=2022-10-01&azureAsyncOperation=true
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.ContainerRegistry/registries/containerapp000005?api-version=2022-02-01-preview
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3","name":"8fad91e5-d602-48e3-b06c-97e6cdaff6d3","status":"InProgress","startTime":"2023-03-14T07:27:50.9699185"}'
@@ -4028,9 +4029,10 @@ interactions:
       ParameterSetName:
       - -g -n --logs-workspace-id --logs-workspace-key
       User-Agent:
-      - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
-    method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3?api-version=2022-10-01&azureAsyncOperation=true
+      - AZURECLI/2.43.0 azsdk-python-azure-mgmt-containerregistry/10.0.0 Python/3.9.7
+        (Windows-10-10.0.22621-SP0)
+    method: POST
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.ContainerRegistry/registries/containerapp000005/listCredentials?api-version=2022-02-01-preview
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/8fad91e5-d602-48e3-b06c-97e6cdaff6d3","name":"8fad91e5-d602-48e3-b06c-97e6cdaff6d3","status":"InProgress","startTime":"2023-03-14T07:27:50.9699185"}'
@@ -4060,8 +4062,8 @@ interactions:
       - Accept-Encoding,Accept-Encoding
       x-content-type-options:
       - nosniff
-      x-powered-by:
-      - ASP.NET
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1198'
     status:
       code: 200
       message: OK
@@ -8339,7 +8341,7 @@ interactions:
       User-Agent:
       - AZURECLI/2.46.0 azsdk-python-azure-mgmt-resource/21.1.0b1 Python/3.10.10 (Windows-10-10.0.22621-SP0)
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App?api-version=2021-04-01
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App?api-version=2021-04-01
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App","namespace":"Microsoft.App","authorizations":[{"applicationId":"7e3bc4fd-85a3-4192-b177-5b8bfc87f42c","roleDefinitionId":"39a74f72-b40f-4bdc-b639-562fe2260bf0"},{"applicationId":"3734c1a4-2bed-4998-a37a-ff1a9e7bf019","roleDefinitionId":"5c779a4f-5cb2-4547-8c41-478d9be8ba90"},{"applicationId":"55ebbb62-3b9c-49fd-9b87-9595226dd4ac","roleDefinitionId":"e49ca620-7992-4561-a7df-4ed67dad77b5","managedByRoleDefinitionId":"9e3af657-a8ff-583c-a75c-2fe7c4bcb635"}],"resourceTypes":[{"resourceType":"operations","locations":["North
@@ -8572,7 +8574,7 @@ interactions:
       User-Agent:
       - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/containerappOperationStatuses/0ec77ef3-31d8-4e75-be00-96ecd54fc8b2?api-version=2022-10-01&azureAsyncOperation=true
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App?api-version=2021-04-01
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/containerappOperationStatuses/0ec77ef3-31d8-4e75-be00-96ecd54fc8b2","name":"0ec77ef3-31d8-4e75-be00-96ecd54fc8b2","status":"InProgress","startTime":"2023-03-14T07:35:44.0957389"}'
@@ -9162,7 +9164,7 @@ interactions:
       User-Agent:
       - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/containerappOperationResults/693e8eb1-0b8e-4885-a10d-8ecedfa587d5?api-version=2022-10-01
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App?api-version=2021-04-01
   response:
     body:
       string: ''

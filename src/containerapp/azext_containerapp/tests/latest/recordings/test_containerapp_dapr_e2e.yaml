@@ -3279,7 +3279,7 @@ interactions:
       User-Agent:
       - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/a9aa2921-8e80-4d0e-ac16-8607fbb5c356?api-version=2022-10-01&azureAsyncOperation=true
+    uri: https://brazilsouth.management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App?api-version=2021-04-01
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/a9aa2921-8e80-4d0e-ac16-8607fbb5c356","name":"a9aa2921-8e80-4d0e-ac16-8607fbb5c356","status":"InProgress","startTime":"2023-03-14T06:30:56.3112429"}'
@@ -3360,6 +3360,10 @@ interactions:
       - Accept-Encoding,Accept-Encoding
       x-content-type-options:
       - nosniff
+      x-ms-async-operation-timeout:
+      - PT15M
+      x-ms-ratelimit-remaining-subscription-resource-requests:
+      - '98'
       x-powered-by:
       - ASP.NET
     status:
@@ -6434,7 +6438,7 @@ interactions:
       x-ms-async-operation-timeout:
       - PT15M
       x-ms-ratelimit-remaining-subscription-resource-requests:
-      - '499'
+      - '498'
       x-powered-by:
       - ASP.NET
     status:

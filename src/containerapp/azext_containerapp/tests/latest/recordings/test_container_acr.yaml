@@ -105,7 +105,7 @@ interactions:
       cache-control:
       - no-cache
       content-length:
-      - '849'
+      - '852'
       content-type:
       - application/json
       date:
@@ -163,7 +163,7 @@ interactions:
       cachecontrol:
       - no-cache
       content-length:
-      - '850'
+      - '853'
       content-type:
       - application/json; charset=utf-8
       date:
@@ -2501,7 +2501,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: null
+    body: '{"location": "canadacentral", "tags": null, "sku": {"name": "consumption"},
+      "properties": {"daprAIInstrumentationKey": null, "vnetConfiguration": null,
+      "internalLoadBalancerEnabled": null, "appLogsConfiguration": {"destination":
+      "log-analytics", "logAnalyticsConfiguration": {"customerId": "462ebe2b-7aaf-4e53-8775-e9d334ef2533",
+      "sharedKey": "NXpGkwdN2XRvcVXIGe4i4lninUr5xxl6LlXwVW9TFYeo444BWm/7hrIhGetfGaeKARR2SCPIoOJj4uPu0/St+Q=="}},
+      "customDomainConfiguration": null, "zoneRedundant": false}}'
     headers:
       Accept:
       - '*/*'
@@ -2511,6 +2516,10 @@ interactions:
       - containerapp env create
       Connection:
       - keep-alive
+      Content-Length:
+      - '496'
+      Content-Type:
+      - application/json
       ParameterSetName:
       - -g -n --logs-workspace-id --logs-workspace-key
       User-Agent:
@@ -2540,15 +2549,17 @@ interactions:
       - Microsoft-IIS/10.0
       strict-transport-security:
       - max-age=31536000; includeSubDomains
-      vary:
-      - Accept-Encoding
       x-content-type-options:
       - nosniff
+      x-ms-async-operation-timeout:
+      - PT15M
+      x-ms-ratelimit-remaining-subscription-resource-requests:
+      - '99'
       x-powered-by:
       - ASP.NET
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
 - request:
     body: null
     headers:
@@ -8624,7 +8635,16 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: null
+    body: '{"location": "canadacentral", "identity": {"type": "None", "userAssignedIdentities":
+      null}, "properties": {"managedEnvironmentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.App/managedEnvironments/containerapp-e2e-env000002",
+      "configuration": {"secrets": [{"name": "containerapp000005azurecrio-containerapp000005",
+      "value": "J02hToLKcbRfRComTGRInET4xCgNmGI7fehabYRvh5+ACRAJFoeT"}], "activeRevisionsMode":
+      "single", "ingress": null, "dapr": null, "registries": [{"server": "containerapp000005.azurecr.io",
+      "username": "containerapp000005", "passwordSecretRef": "containerapp000005azurecrio-containerapp000005"}]},
+      "template": {"revisionSuffix": null, "containers": [{"image": "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
+      "name": "containerapp-e2e000006", "command": null, "args": null, "env": null,
+      "resources": null, "volumeMounts": null}], "scale": null, "volumes": null}},
+      "tags": null}'
     headers:
       Accept:
       - '*/*'
@@ -9960,6 +9980,8 @@ interactions:
       - Accept-Encoding,Accept-Encoding
       x-content-type-options:
       - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1195'
       x-powered-by:
       - ASP.NET
     status:
@@ -10335,7 +10357,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1199'
+      - '1198'
       x-powered-by:
       - ASP.NET
     status:
@@ -10409,7 +10431,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-resource-requests:
-      - '499'
+      - '498'
       x-powered-by:
       - ASP.NET
     status:

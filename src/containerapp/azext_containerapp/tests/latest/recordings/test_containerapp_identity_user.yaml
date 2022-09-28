@@ -2497,11 +2497,11 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
-      - containerapp env show
+      - containerapp env create
       Connection:
       - keep-alive
       ParameterSetName:
@@ -2509,7 +2509,7 @@ interactions:
       User-Agent:
       - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App?api-version=2021-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.App/managedEnvironments/containerapp-env000002?api-version=2022-06-01-preview
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/66a980b8-534f-47d8-846e-330ef147a544","name":"66a980b8-534f-47d8-846e-330ef147a544","status":"InProgress","startTime":"2023-03-14T06:20:52.5381582"}'
@@ -2529,12 +2529,18 @@ interactions:
       - '-1'
       pragma:
       - no-cache
+      server:
+      - Microsoft-IIS/10.0
       strict-transport-security:
       - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
       vary:
-      - Accept-Encoding
+      - Accept-Encoding,Accept-Encoding
       x-content-type-options:
       - nosniff
+      x-powered-by:
+      - ASP.NET
     status:
       code: 200
       message: OK
@@ -2546,7 +2552,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       CommandName:
-      - containerapp env show
+      - containerapp env create
       Connection:
       - keep-alive
       ParameterSetName:
@@ -2593,11 +2599,11 @@ interactions:
     body: null
     headers:
       Accept:
-      - application/json
+      - '*/*'
       Accept-Encoding:
       - gzip, deflate
       CommandName:
-      - containerapp create
+      - containerapp env create
       Connection:
       - keep-alive
       ParameterSetName:
@@ -2605,7 +2611,7 @@ interactions:
       User-Agent:
       - python/3.10.10 (Windows-10-10.0.22621-SP0) AZURECLI/2.46.0
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App?api-version=2021-04-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.App/managedEnvironments/containerapp-env000002?api-version=2022-06-01-preview
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.App/locations/eastus/managedEnvironmentOperationStatuses/66a980b8-534f-47d8-846e-330ef147a544","name":"66a980b8-534f-47d8-846e-330ef147a544","status":"InProgress","startTime":"2023-03-14T06:20:52.5381582"}'

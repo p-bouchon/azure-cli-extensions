@@ -661,10 +661,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"location": "eastus", "tags": null, "sku": {"name": "Consumption"}, "properties":
-      {"daprAIInstrumentationKey": null, "vnetConfiguration": null, "appLogsConfiguration":
-      {"destination": "log-analytics", "logAnalyticsConfiguration": {"customerId":
-      "8ee99494-3cd0-412d-a93b-6bf0c0785f1e", "sharedKey": "on0x3bctmrvfpZFzncUejpVZisNYIiyoTnjFaPO96sewFIr71+vJwsT/4C7wglU0XhxxPTER4n5T+TlI/G9B6g=="}},
+    body: '{"location": "canadacentral", "tags": null, "sku": {"name": "consumption"},
+      "properties": {"daprAIInstrumentationKey": null, "vnetConfiguration": null,
+      "internalLoadBalancerEnabled": null, "appLogsConfiguration": {"destination":
+      "log-analytics", "logAnalyticsConfiguration": {"customerId": "97c8e6a3-550a-413e-81bf-ecf96e99f54d",
+      "sharedKey": "beBbtNZeOytC4VzxUGB+yUq5kiYiWP5O9nN2PjPsII3la54aj8UvIFGvRUiiFgH6OUnBx09XdIvYN5s2cQLEdQ=="}},
       "customDomainConfiguration": null, "zoneRedundant": false}}'
     headers:
       Accept:
@@ -676,7 +677,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '452'
+      - '496'
       Content-Type:
       - application/json
       ParameterSetName:
@@ -6515,7 +6516,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"location": "eastus", "identity": {"type": "None", "userAssignedIdentities":
+    body: '{"location": "canadacentral", "identity": {"type": "None", "userAssignedIdentities":
       null}, "properties": {"managedEnvironmentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.App/managedEnvironments/containerapp-env000002",
       "configuration": {"secrets": null, "activeRevisionsMode": "single", "ingress":
       {"fqdn": null, "external": true, "targetPort": 80, "transport": "auto", "exposedPort":
@@ -6535,7 +6536,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '871'
+      - '822'
       Content-Type:
       - application/json
       ParameterSetName:

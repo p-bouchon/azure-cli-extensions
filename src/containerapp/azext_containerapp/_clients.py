@@ -42,7 +42,7 @@ class PollingAnimation():
         sys.stderr.write("\r\033[K")
 
 
-def poll(cmd, request_url, poll_if_status):  # pylint: disable=inconsistent-return-statements
+def poll(cmd, request_url, poll_if_status: list):  # pylint: disable=inconsistent-return-statements
     try:
         start = time.time()
         end = time.time() + POLLING_TIMEOUT
@@ -69,7 +69,7 @@ def poll(cmd, request_url, poll_if_status):  # pylint: disable=inconsistent-retu
 
         delete_statuses = ["scheduledfordelete", "cancelled"]
 
-        if poll_if_status not in delete_statuses:  # Catch "not found" errors if polling for delete
+        if poll_if_status[0] not in delete_statuses:  # Catch "not found" errors if polling for delete
             raise e
 
 
@@ -159,7 +159,7 @@ class ContainerAppClient():
                 resource_group_name,
                 name,
                 api_version)
-            r = send_raw_request(cmd.cli_ctx, "GET", request_url)
+            return poll(cmd, request_url, ["inprogress"])
 
         return r.json()
 
@@ -183,12 +183,14 @@ class ContainerAppClient():
         if no_wait:
             return r.json()
         elif r.status_code == 202:
-            operation_url = r.headers.get(HEADER_LOCATION)
-            response = poll_results(cmd, operation_url)
-            if response is None:
-                raise ResourceNotFoundError("Could not find a container app")
-            else:
-                return response
+            url_fmt = "{}/subscriptions/{}/resourceGroups/{}/providers/Microsoft.App/containerApps/{}?api-version={}"
+            request_url = url_fmt.format(
+                management_hostname.strip('/'),
+                sub_id,
+                resource_group_name,
+                name,
+                api_version)
+            return poll(cmd, request_url, ["inprogress"])
 
         return r.json()
 
@@ -211,8 +213,11 @@ class ContainerAppClient():
             return  # API doesn't return JSON (it returns no content)
         elif r.status_code in [200, 201, 202, 204]:
             if r.status_code == 202:
-                operation_url = r.headers.get(HEADER_LOCATION)
-                poll_results(cmd, operation_url)
+                from azure.cli.core.azclierror import ResourceNotFoundError
+                try:
+                    poll(cmd, request_url, ["cancelled"])
+                except ResourceNotFoundError:
+                    pass
                 logger.warning('Containerapp successfully deleted')
 
     @classmethod
@@ -534,12 +539,14 @@ class ManagedEnvironmentClient():
         if no_wait:
             return r.json()
         elif r.status_code == 201:
-            operation_url = r.headers.get(HEADER_LOCATION)
-            response = poll_results(cmd, operation_url)
-            if response is None:
-                raise ResourceNotFoundError("Could not find a managed environment")
-            else:
-                return response
+            url_fmt = "{}/subscriptions/{}/resourceGroups/{}/providers/Microsoft.App/managedEnvironments/{}?api-version={}"
+            request_url = url_fmt.format(
+                management_hostname.strip('/'),
+                sub_id,
+                resource_group_name,
+                name,
+                api_version)
+            return poll(cmd, request_url, ["waiting"])
 
         return r.json()
 
@@ -562,8 +569,11 @@ class ManagedEnvironmentClient():
             return  # API doesn't return JSON (it returns no content)
         elif r.status_code in [200, 201, 202, 204]:
             if r.status_code == 202:
-                operation_url = r.headers.get(HEADER_LOCATION)
-                poll_results(cmd, operation_url)
+                from azure.cli.core.azclierror import ResourceNotFoundError
+                try:
+                    poll(cmd, request_url, ["scheduledfordelete"])
+                except ResourceNotFoundError:
+                    pass
                 logger.warning('Containerapp environment successfully deleted')
         return
 
@@ -871,7 +881,7 @@ class GitHubActionClient():
                 resource_group_name,
                 name,
                 api_version)
-            return poll(cmd, request_url, "inprogress")
+            return poll(cmd, request_url, ["inprogress"])
 
         return r.json()
 
@@ -920,7 +930,7 @@ class GitHubActionClient():
             if r.status_code == 202:
                 from azure.cli.core.azclierror import ResourceNotFoundError
                 try:
-                    poll(cmd, request_url, "cancelled")
+                    poll(cmd, request_url, ["cancelled"])
                 except ResourceNotFoundError:
                     pass
                 logger.warning('Containerapp github action successfully deleted')
@@ -956,7 +966,7 @@ class DaprComponentClient():
                 environment_name,
                 name,
                 api_version)
-            return poll(cmd, request_url, "inprogress")
+            return poll(cmd, request_url, ["inprogress"])
 
         return r.json()
 
@@ -991,7 +1001,7 @@ class DaprComponentClient():
             if r.status_code == 202:
                 from azure.cli.core.azclierror import ResourceNotFoundError
                 try:
-                    poll(cmd, request_url, "cancelled")
+                    poll(cmd, request_url, ["cancelled"])
                 except ResourceNotFoundError:
                     pass
                 logger.warning('Dapr component successfully deleted')
@@ -1073,7 +1083,7 @@ class StorageClient():
                 env_name,
                 name,
                 api_version)
-            return poll(cmd, request_url, "waiting")
+            return poll(cmd, request_url, ["waiting"])
 
         return r.json()
 
@@ -1107,7 +1117,7 @@ class StorageClient():
             if r.status_code == 200:  # 200 successful delete, 204 means storage not found
                 from azure.cli.core.azclierror import ResourceNotFoundError
                 try:
-                    poll(cmd, request_url, "scheduledfordelete")
+                    poll(cmd, request_url, ["scheduledfordelete"])
                 except ResourceNotFoundError:
                     pass
                 logger.warning('Containerapp environment storage successfully deleted')
@@ -1181,7 +1191,7 @@ class AuthClient():
             return r.json()
         elif r.status_code == 201:
             request_url = f"{management_hostname}subscriptions/{sub_id}/resourceGroups/{resource_group_name}/providers/Microsoft.App/containerApps/{container_app_name}/authConfigs/{auth_config_name}?api-version={api_version}"
-            return poll(cmd, request_url, "waiting")
+            return poll(cmd, request_url, ["waiting"])
 
         return r.json()
 
@@ -1201,7 +1211,7 @@ class AuthClient():
             if r.status_code == 200:  # 200 successful delete, 204 means storage not found
                 from azure.cli.core.azclierror import ResourceNotFoundError
                 try:
-                    poll(cmd, request_url, "scheduledfordelete")
+                    poll(cmd, request_url, ["scheduledfordelete"])
                 except ResourceNotFoundError:
                     pass
                 logger.warning('Containerapp AuthConfig successfully deleted')

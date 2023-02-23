@@ -7,7 +7,7 @@
 
 VnetConfiguration = {
     "infrastructureSubnetId": None,
-    "runtimeSubnetId": None,
+    #"runtimeSubnetId": None,
     "dockerBridgeCidr": None,
     "platformReservedCidr": None,
     "platformReservedDnsIP": None
@@ -22,6 +22,10 @@ ManagedEnvironment = {
     "properties": {
         "daprAIInstrumentationKey": None,
         "vnetConfiguration": None,  # VnetConfiguration
+<<<<<<< HEAD
+=======
+        #"internalLoadBalancerEnabled": None,
+>>>>>>> wlp changes
         "appLogsConfiguration": None,
         "customDomainConfiguration": None  # CustomDomainConfiguration
     }

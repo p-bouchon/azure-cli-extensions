@@ -499,6 +499,19 @@ class ContainerAppJobPreviewCreateDecorator(ContainerAppJobCreateDecorator):
         if self.get_argument_yaml() is None:
             if self.get_argument_trigger_type() is None:
                 raise RequiredArgumentMissingError('Usage error: --trigger-type is required')
+            
+            if self.get_argument_trigger_type().lower() == "event":
+                if self.get_argument_scale_rule_name() is None:
+                    raise RequiredArgumentMissingError('Usage error: --scale-rule-name is required for event triggered jobs')
+
+                if self.get_argument_scale_rule_type() is None:
+                    raise RequiredArgumentMissingError('Usage error: --scale-rule-type is required for event triggered jobs')
+
+                if self.get_argument_scale_rule_metadata() is None:
+                    raise RequiredArgumentMissingError('Usage error: --scale-rule-metadata is required for event triggered jobs')
+
+                if self.get_argument_scale_rule_auth() is None:
+                    raise RequiredArgumentMissingError('Usage error: --scale-rule-auth is required for event triggered jobs')
 
     def set_up_extended_location(self):
         if self.get_argument_environment_type() == CONNECTED_ENVIRONMENT_TYPE:
